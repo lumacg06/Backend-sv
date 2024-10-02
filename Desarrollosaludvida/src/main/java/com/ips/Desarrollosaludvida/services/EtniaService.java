@@ -14,27 +14,18 @@ public class EtniaService {
     @Autowired
     private EtniaRepository etniaRepository;
 
-    // Metodo para obtener todas las etnias
     public List<EtniaModel> obtenerTodos() {
         return etniaRepository.findAll();
     }
 
-    // Metodo para buscar etnias por etnia
-    public List<EtniaModel> buscarPorEtnia(String etnia) {
-        return etniaRepository.findByEtnia(etnia);
-    }
-
-    // Metodo para obtener una etnia por id
     public EtniaModel obtenerPorId(Long id) {
         return etniaRepository.findById(id).orElse(null);
     }
 
-    // Metodo para crear una nueva etnia
     public EtniaModel crearEtnia(EtniaModel etnia) {
         return etniaRepository.save(etnia);
     }
 
-    // Metodo para actualizar una etnia
     public EtniaModel actualizarEtnia(Long id, EtniaModel nuevaEtnia) {
         EtniaModel etniaActualizado = obtenerPorId(id);
         if (etniaActualizado != null) {
@@ -45,8 +36,11 @@ public class EtniaService {
         }
     }
 
-    // Metodo para eliminar una etnia
     public void eliminarEtnia(Long id) {
         etniaRepository.deleteById(id);
+    }
+
+    public List<EtniaModel> buscarPorEtnia(String etnia) {
+        return etniaRepository.findByEtnia(etnia);
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.ips.Desarrollosaludvida.services.EtniaService;
 
 @RestController
 @RequestMapping("/api/etnias")
+//@CrossOrigin(origins = "http://localhost:5173")
 public class EtniaController {
 
     @Autowired
@@ -46,13 +48,13 @@ public class EtniaController {
         }
     }
     
-    //Metodo POST
+    // Metodo POST
     @PostMapping
-    public ResponseEntity<EtniaModel> crearEtnia(@RequestBody EtniaModel etnia){
+    public ResponseEntity<EtniaModel> crearEtnia(@RequestBody EtniaModel etnia) {
         EtniaModel nuevoEtnia = etniaService.crearEtnia(etnia);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoEtnia);
     }
-    
+
     //Metodo PUT
     @PutMapping("/{id}")
     public ResponseEntity<EtniaModel> actualizarEtnia(@PathVariable Long id, @RequestBody EtniaModel nuevaEtnia){

@@ -21,5 +21,4 @@ public class EtniaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String etnia;
-
 }
