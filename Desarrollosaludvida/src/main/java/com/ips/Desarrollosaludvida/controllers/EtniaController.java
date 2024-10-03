@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +21,7 @@ import com.ips.Desarrollosaludvida.services.EtniaService;
 
 @RestController
 @RequestMapping("/api/etnias")
-//@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 public class EtniaController {
 
     @Autowired
@@ -29,35 +29,37 @@ public class EtniaController {
 
     // Metodo GET
     @GetMapping
-    public List<EtniaModel> buscarEtnias(@RequestParam (required = false)String etnia){
+    public List<EtniaModel> buscarEtnias(@RequestParam(required = false) String etnia) {
         if (etnia != null && !etnia.isEmpty()) {
-            return etniaService.buscarPorEtnia(etnia);           
+            return etniaService.buscarPorEtnia(etnia);
         } else {
-          return etniaService.obtenerTodos();  
+            return etniaService.obtenerTodos();
         }
     }
-    //Metodo GET por ID
-    @GetMapping("/{id}")    
-    public ResponseEntity<EtniaModel> obtenerEtniaPorId(@PathVariable Long id){
-       EtniaModel etnia = etniaService.obtenerPorId(id);
+
+    // Metodo GET por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<EtniaModel> obtenerEtniaPorId(@PathVariable Long id) {
+        EtniaModel etnia = etniaService.obtenerPorId(id);
         if (etnia != null) {
             return ResponseEntity.ok(etnia);
-       
+
         } else {
-           return ResponseEntity.notFound().build(); 
+            return ResponseEntity.notFound().build();
         }
     }
-    
+
     // Metodo POST
     @PostMapping
     public ResponseEntity<EtniaModel> crearEtnia(@RequestBody EtniaModel etnia) {
+        etnia.setId(null); // Establece el id en null para que se genere automáticamente
         EtniaModel nuevoEtnia = etniaService.crearEtnia(etnia);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoEtnia);
     }
 
-    //Metodo PUT
+    // Metodo PUT
     @PutMapping("/{id}")
-    public ResponseEntity<EtniaModel> actualizarEtnia(@PathVariable Long id, @RequestBody EtniaModel nuevaEtnia){
+    public ResponseEntity<EtniaModel> actualizarEtnia(@PathVariable Long id, @RequestBody EtniaModel nuevaEtnia) {
         EtniaModel etniaActualizado = etniaService.actualizarEtnia(id, nuevaEtnia);
         if (etniaActualizado != null) {
             return ResponseEntity.ok(etniaActualizado);
@@ -65,11 +67,15 @@ public class EtniaController {
             return ResponseEntity.notFound().build();
         }
     }
-    
-    //Metodo DELETE
+
+    // Metodo DELETE
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarEtnia(@PathVariable Long id){
-        etniaService.eliminarEtnia(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> eliminarEtnia(@PathVariable Long id) {
+        try {
+            etniaService.eliminarEtnia(id);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 }

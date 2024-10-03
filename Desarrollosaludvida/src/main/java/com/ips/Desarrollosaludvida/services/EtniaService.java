@@ -37,7 +37,11 @@ public class EtniaService {
     }
 
     public void eliminarEtnia(Long id) {
-        etniaRepository.deleteById(id);
+        try {
+            etniaRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar la etnia con id " + id, e);
+        }
     }
 
     public List<EtniaModel> buscarPorEtnia(String etnia) {

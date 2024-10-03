@@ -47,6 +47,10 @@ public class DiscapacidadService {
 
     // Metodo para eliminar un discapacidad
     public void eliminarDiscapacidad(Long id) {
-        discapacidadRepository.deleteById(id);
+        try {
+            discapacidadRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar la discapacidad con id " + id, e);
+        }
     }
 }
