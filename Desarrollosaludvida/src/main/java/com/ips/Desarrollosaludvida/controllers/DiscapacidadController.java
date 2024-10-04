@@ -51,6 +51,7 @@ public class DiscapacidadController {
     // Metodo POST
     @PostMapping
     public ResponseEntity<DiscapacidadModel> crearDiscapacidad(@RequestBody DiscapacidadModel discapacidad) {
+        discapacidad.setId(null); // Establece el id en null para que se genere automáticamente
         DiscapacidadModel nuevoDiscapacidad = discapacidadService.crearDiscapacidad(discapacidad);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoDiscapacidad);
     }

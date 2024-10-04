@@ -38,7 +38,7 @@ public class TecnologiaController {
 
     // Metodo GET por ID
     @GetMapping("/{id}")
-    public ResponseEntity<TecnologiaModel> obtenerTecnologiaPorId(@PathVariable Integer id) {
+    public ResponseEntity<TecnologiaModel> obtenerTecnologiaPorId(@PathVariable Long id) {
         TecnologiaModel tecnologia = tecnologiaService.obtenerPorId(id);
         if (tecnologia != null) {
             return ResponseEntity.ok(tecnologia);
@@ -57,7 +57,7 @@ public class TecnologiaController {
 
     // Metodo PUT
     @PutMapping("/{id}")
-    public ResponseEntity<TecnologiaModel> actualizarTecnologia(@PathVariable Integer id,
+    public ResponseEntity<TecnologiaModel> actualizarTecnologia(@PathVariable Long id,
             @RequestBody TecnologiaModel nuevoTecnologia) {
         TecnologiaModel TecnologiaActualizado = tecnologiaService.actualizarTecnologia(id, nuevoTecnologia);
         if (TecnologiaActualizado != null) {
@@ -69,7 +69,7 @@ public class TecnologiaController {
 
     // Metodo DELETE
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarTecnologia(@PathVariable Integer id) {
+    public ResponseEntity<Void> eliminarTecnologia(@PathVariable Long id) {
         try {
             tecnologiaService.eliminarTecnologia(id);
             return ResponseEntity.ok().build();

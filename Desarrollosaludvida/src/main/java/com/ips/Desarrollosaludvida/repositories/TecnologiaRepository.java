@@ -7,7 +7,7 @@ import com.ips.Desarrollosaludvida.models.TecnologiaModel;
 import java.util.List;
 
 @Repository
-public interface TecnologiaRepository extends JpaRepository<TecnologiaModel, Integer> {
+public interface TecnologiaRepository extends JpaRepository<TecnologiaModel, Long> {
 
     List<TecnologiaModel> findByCategoria(String categoria);
 }

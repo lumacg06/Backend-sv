@@ -18,7 +18,7 @@ public class TecnologiaService {
         return tecnologiaRepository.findAll();
     }
 
-    public TecnologiaModel obtenerPorId(Integer id) {
+    public TecnologiaModel obtenerPorId(Long id) {
         return tecnologiaRepository.findById(id).orElse(null);
     }
 
@@ -26,7 +26,7 @@ public class TecnologiaService {
         return tecnologiaRepository.save(tecnologia);
     }
 
-    public TecnologiaModel actualizarTecnologia(Integer id, TecnologiaModel nuevaTecnologia) {
+    public TecnologiaModel actualizarTecnologia(Long id, TecnologiaModel nuevaTecnologia) {
         TecnologiaModel tecnologiaActualizado = obtenerPorId(id);
         if (tecnologiaActualizado != null) {
             tecnologiaActualizado.setNombre(nuevaTecnologia.getNombre());
@@ -37,7 +37,7 @@ public class TecnologiaService {
         }
     }
 
-    public void eliminarTecnologia(Integer id) {
+    public void eliminarTecnologia(Long id) {
         try {
             tecnologiaRepository.deleteById(id);
         } catch (Exception e) {
