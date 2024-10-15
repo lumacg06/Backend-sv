@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión de Discapacidades - Salud</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Desarrollosaludvida/src/main/resources/static/css/stylesDiscapacidades.css">
+</head>
+
+</html>
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión de Discapacidades - Salud</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav ul {
+            padding: 0;
+            list-style-type: none;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        .fas {
+            margin-right: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Gestión de Discapacidades</h1>
+        <nav>
+            <ul>
+                <li><a href="#" th:href="@{/}">Inicio</a></li>
+                <li><a href="#" th:href="@{/discapacidades}">Discapacidades</a></li>
+                <li><a href="#" th:href="@{/contacto}">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h2>Añadir Nueva Discapacidad</h2>
+        <form th:action="@{/guardar}" th:object="${discapacidad}" method="post">
+            <label for="categoria">Nueva Discapacidad:</label>
+            <input type="text" th:field="*{categoria}" placeholder="Escribe una discapacidad" required />
+            <button type="submit">Guardar</button>
+        </form>
+    
+        <h2>Lista de Discapacidades</h2>
+        <table class="discapacidades-table">
+            <thead>
+                <tr>
+                    <th class="discapacidades-table-header">Categoría</th>
+                    <th class="discapacidades-table-header">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="discapacidad : ${discapacidades}">
+                    <td th:text="${discapacidad.categoria}"></td>
+                    <td>
+                        <a th:href="@{/editar/{id}(id=${discapacidad.id})}"><i class="fas fa-edit"></i> Editar</a>
+                        <a th:href="@{/eliminar/{id}(id=${discapacidad.id})}"><i class="fas fa-trash"></i> Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Gestión de Discapacidades. Todos los derechos reservados.</p>
+    </footer>
+    
+    </body>
+</html>

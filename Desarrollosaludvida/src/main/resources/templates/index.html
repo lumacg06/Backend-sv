@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Salud</title>
+    <style>
+        /* ... (mantén los estilos que ya tenías) ... */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            background-color: #444;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Sistema de Salud</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#" onclick="cargarContenido('inicio')">Inicio</a></li>
+            <li><a href="#" onclick="cargarContenido('discapacidades')">Discapacidades</a></li>
+            <li><a href="#" onclick="cargarContenido('pacientes')">Pacientes</a></li>
+            <li><a href="#" onclick="cargarContenido('consultas')">Consultas</a></li>
+        </ul>
+    </nav>
+
+    <div id="contenido" class="container">
+        <!-- El contenido se cargará dinámicamente aquí -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sistema de Salud. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function cargarContenido(seccion) {
+            const contenedor = document.getElementById('contenido');
+            
+            switch(seccion) {
+                case 'inicio':
+                    contenedor.innerHTML = `
+                        <h2>Bienvenido al Sistema de Salud</h2>
+                        <p>Esta es la página principal del sistema. Utiliza la navegación para acceder a las diferentes secciones.</p>
+                    `;
+                    break;
+                case 'discapacidades':
+                    cargarDiscapacidades();
+                    break;
+                case 'pacientes':
+                    cargarPacientes();
+                    break;
+                case 'consultas':
+                    cargarConsultas();
+                    break;
+            }
+        }
+
+        function cargarDiscapacidades() {
+            axios.get('/api/discapacidades')
+                .then(function (response) {
+                    let html = '<h2>Discapacidades</h2><ul>';
+                    response.data.forEach(function(discapacidad) {
+                        html += `<li>${discapacidad.categoria}</li>`;
+                    });
+                    html += '</ul>';
+                    document.getElementById('contenido').innerHTML = html;
+                })
+                .catch(function (error) {
+                    console.error('Error al cargar discapacidades:', error);
+                });
+        }
+
+        function cargarPacientes() {
+            // Implementa la lógica para cargar pacientes
+            document.getElementById('contenido').innerHTML = '<h2>Pacientes</h2><p>Contenido de pacientes por implementar</p>';
+        }
+
+        function cargarConsultas() {
+            // Implementa la lógica para cargar consultas
+            document.getElementById('contenido').innerHTML = '<h2>Consultas</h2><p>Contenido de consultas por implementar</p>';
+        }
+
+        // Cargar la página de inicio por defecto
+        cargarContenido('inicio');
+    </script>
+</body>
+</html>

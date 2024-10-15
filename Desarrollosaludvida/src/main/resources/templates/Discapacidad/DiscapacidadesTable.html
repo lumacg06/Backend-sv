@@ -1,0 +1,20 @@
+<div class="container">
+    <table class="discapacidades-table">
+        <thead>
+            <tr>
+                <th class="discapacidades-table-header">Categoría</th>
+                <th class="discapacidades-table-header">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Incluir la lógica de iteración del DiscapacidadRow aquí -->
+            <tr th:each="discapacidad : ${discapacidades}">
+                <td th:text="${discapacidad.categoria}"></td>
+                <td>
+                    <a th:href="@{/editar/{id}(id=${discapacidad.id})}">Editar</a>
+                    <a th:href="@{/eliminar/{id}(id=${discapacidad.id})}">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

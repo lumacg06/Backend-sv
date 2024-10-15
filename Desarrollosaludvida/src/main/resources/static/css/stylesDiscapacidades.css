@@ -1,0 +1,119 @@
+/* Reset de estilos */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Estilos del body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilos del header */
+header {
+    background: #007BFF;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Navegación */
+nav ul {
+    padding: 10px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del formulario */
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #218838;
+}
+
+/* Estilos de la tabla */
+.discapacidades-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.discapacidades-table-header {
+    background: #007BFF;
+    color: white;
+    text-align: left;
+}
+
+.discapacidades-table th, .discapacidades-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.discapacidades-table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+/* Estilos del footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #007BFF;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Títulos */
+h1, h2 {
+    margin-bottom: 20px;
+}

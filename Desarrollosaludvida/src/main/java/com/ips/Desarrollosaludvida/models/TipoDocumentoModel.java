@@ -15,12 +15,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tecnologia")
-public class TecnologiaModel {
+@Table(name = "tipos_documento")
+public class TipoDocumentoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String descripcion;
-    private String categoria;
+    private String codigo;
 }

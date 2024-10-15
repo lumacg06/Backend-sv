@@ -1,0 +1,7 @@
+<tr th:each="discapacidad : ${discapacidades}">
+    <td th:text="${discapacidad.categoria}"></td>
+    <td>
+        <a th:href="@{/editar/{id}(id=${discapacidad.id})}">Editar</a>
+        <a th:href="@{/eliminar/{id}(id=${discapacidad.id})}">Eliminar</a>
+    </td>
+</tr>

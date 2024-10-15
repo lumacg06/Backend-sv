@@ -1,0 +1,6 @@
+<form th:action="@{/guardar}" th:object="${discapacidad}" method="post">
+    <label for="categoria">Nueva Discapacidad:</label>
+    <input type="text" th:field="*{categoria}" placeholder="Escribe una discapacidad" />
+
+    <button type="submit">Guardar</button>
+</form>
