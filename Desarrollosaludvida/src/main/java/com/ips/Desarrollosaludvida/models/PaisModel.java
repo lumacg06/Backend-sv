@@ -20,6 +20,7 @@ public class PaisModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre;
     private String codigoiso;
+    private String nombre;
+
 }
