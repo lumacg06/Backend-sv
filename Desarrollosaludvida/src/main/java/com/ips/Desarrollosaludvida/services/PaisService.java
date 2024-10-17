@@ -30,7 +30,7 @@ public class PaisService {
         PaisModel paisActualizado = obtenerPorId(id);
         if (paisActualizado != null) {
             paisActualizado.setNombre(nuevaPais.getNombre());
-            paisActualizado.setCodigoIso(nuevaPais.getCodigoIso());
+            paisActualizado.setCodigoiso(nuevaPais.getCodigoiso());
             return paisRepository.save(paisActualizado);
         } else {
             return null;

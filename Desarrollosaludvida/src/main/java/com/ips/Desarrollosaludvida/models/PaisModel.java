@@ -1,5 +1,6 @@
 package com.ips.Desarrollosaludvida.models;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,5 +22,5 @@ public class PaisModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String codigoIso;
+    private String codigoiso;
 }
