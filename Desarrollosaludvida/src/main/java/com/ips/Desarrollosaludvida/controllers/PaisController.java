@@ -45,6 +45,12 @@ public class PaisController {
         }
     }
 
+    // Metodo GET por nombre (new)
+    @GetMapping("/buscar")
+    public List<PaisModel> buscarPaisesPorNombre(@RequestParam String nombre) {
+        return paisService.buscarPorNombre(nombre);
+    }
+
     // Metodo POST
     @PostMapping
     public ResponseEntity<PaisModel> crearPais(@RequestBody PaisModel pais) {

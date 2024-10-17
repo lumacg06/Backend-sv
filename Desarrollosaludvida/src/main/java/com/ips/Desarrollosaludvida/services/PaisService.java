@@ -46,7 +46,7 @@ public class PaisService {
     }
 
     public List<PaisModel> buscarPorNombre(String nombre) {
-        return paisRepository.findByNombre(nombre);
+        // Utiliza el método findByNombre de Spring Data JPA
+        return paisRepository.findByNombreContainingIgnoreCase(nombre);
     }
-
 }

@@ -15,11 +15,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "paises")
-public class PaisModel {
+@Table(name = "municipios")
+public class MunicipioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
-    private String codigoiso;
+    private String codigomunicipio;
 }
