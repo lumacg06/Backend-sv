@@ -15,11 +15,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "ocupaciones")  // Cambia el nombre de la tabla según sea necesario
+@Table(name = "ocupaciones") // Cambia el nombre de la tabla según sea necesario
 public class OcupacionModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre; 
-    private String codigoocupacion; 
+    private String codigoocupacion;
+    private String nombre;
+
 }
