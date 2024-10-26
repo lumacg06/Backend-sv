@@ -1,4 +1,4 @@
-package com.ips.Desarrollosaludvida;
+ package com.ips.Desarrollosaludvida;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
