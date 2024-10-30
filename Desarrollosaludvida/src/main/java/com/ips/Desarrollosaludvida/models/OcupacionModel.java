@@ -20,7 +20,7 @@ public class OcupacionModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String codigoocupacion;
-    private String nombre;
+    private String Codigo;
+    private String Descripcion;
 
 }

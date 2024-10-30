@@ -29,7 +29,7 @@ public class OcupacionService {
     public OcupacionModel actualizarOcupacion(Long id, OcupacionModel nuevaOcupacion) {
         OcupacionModel ocupacionActualizado = obtenerPorId(id);
         if (ocupacionActualizado != null) {
-            ocupacionActualizado.setNombre(nuevaOcupacion.getNombre());
+            ocupacionActualizado.setDescripcion(nuevaOcupacion.getDescripcion());
             // Agrega aquí los demás campos que deseas actualizar
             return ocupacionRepository.save(ocupacionActualizado);
         } else {
