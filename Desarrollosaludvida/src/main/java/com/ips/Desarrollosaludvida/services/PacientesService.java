@@ -1,5 +1,5 @@
 package com.ips.Desarrollosaludvida.services;
 
-public class ConsultarPaisesService {
+public class PacientesService {
 
 }
