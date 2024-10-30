@@ -20,7 +20,6 @@ public class OcupacionModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Codigo;
-    private String Descripcion;
-
+    private String codigo; // Asegúrate de que este atributo también esté en minúscula
+    private String descripcion; // Cambia a minúscula
 }

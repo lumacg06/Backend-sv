@@ -25,11 +25,11 @@ public class OcupacionController {
     @Autowired
     private OcupacionService ocupacionService;
 
-    // Método GET para buscar todas las ocupaciones o por nombre
+    // Método GET para buscar todas las ocupaciones o por Descripcion
     @GetMapping
-    public List<OcupacionModel> buscarOcupaciones(@RequestParam(required = false) String nombre) {
-        if (nombre != null && !nombre.isEmpty()) {
-            return ocupacionService.buscarPorNombre(nombre);
+    public List<OcupacionModel> buscarOcupaciones(@RequestParam(required = false) String descripcion) {
+        if (descripcion != null && !descripcion.isEmpty()) {
+            return ocupacionService.buscarPorDescripcion(descripcion);
         } else {
             return ocupacionService.obtenerTodos();
         }
@@ -47,8 +47,8 @@ public class OcupacionController {
     }
 
     @GetMapping("/buscar")
-    public List<OcupacionModel> buscarOcupacionPorNombre(@RequestParam String nombre) {
-        return ocupacionService.buscarPorNombre(nombre);
+    public List<OcupacionModel> buscarOcupacionPorDescripcion(@RequestParam String descripcion) {
+        return ocupacionService.buscarPorDescripcion(descripcion);
     }
 
     // Método POST para crear una nueva ocupación

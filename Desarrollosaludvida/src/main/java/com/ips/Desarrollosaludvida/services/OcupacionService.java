@@ -45,7 +45,7 @@ public class OcupacionService {
         }
     }
 
-    public List<OcupacionModel> buscarPorNombre(String nombre) {
-        return ocupacionRepository.findByNombreContainingIgnoreCase(nombre);
+    public List<OcupacionModel> buscarPorDescripcion(String descripcion) {
+        return ocupacionRepository.findByDescripcionContainingIgnoreCase(descripcion);
     }
 }
