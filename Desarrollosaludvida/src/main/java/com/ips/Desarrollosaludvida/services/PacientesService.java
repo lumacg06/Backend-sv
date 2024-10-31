@@ -47,7 +47,7 @@ public class PacientesService {
             pacienteActualizado.setSexoBiologico(nuevoPaciente.getSexoBiologico());
             pacienteActualizado.setIdentidadGenero(nuevoPaciente.getIdentidadGenero());
             pacienteActualizado.setOcupacionMomento(nuevoPaciente.getOcupacionMomento());
-            pacienteActualizado.setCategoriaDiscapacidad(nuevoPaciente.getCategoriaDiscapacidad());
+            pacienteActualizado.setCategoria_Discapacidad(nuevoPaciente.getCategoria_Discapacidad());
             pacienteActualizado.setMunicipioRecidenciaHabitual(nuevoPaciente.getMunicipioRecidenciaHabitual());
             pacienteActualizado.setPertenenciaEtnica(nuevoPaciente.getPertenenciaEtnica());
             pacienteActualizado.setZonaTerritorialResidencia(nuevoPaciente.getZonaTerritorialResidencia());
