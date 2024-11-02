@@ -12,10 +12,10 @@ public class corsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:5173")//Escribir la url del proyecto front a conectar
-                .allowedMethods("*")//PODEMOS ESPECIFICAR LOS METODOS A PERMITIR DESDE EL FRONT,GET,POST,ETC
-                .allowedHeaders("*")//PERMITIR TODOS LOS HEADERS
-                .allowCredentials(true)//PERMITIR LAS CREDENCIALES
-                .maxAge(3600); //ESTABLECER EL TIEMPO DE CADUCIDAD EN SEGUNDOS
+                .allowedOrigins("http://localhost:5173")// Escribir la url del proyecto front a conectar
+                .allowedMethods("*")// PODEMOS ESPECIFICAR LOS METODOS A PERMITIR DESDE EL FRONT,GET,POST,ETC
+                .allowedHeaders("*")// PERMITIR TODOS LOS HEADERS
+                .allowCredentials(true)// PERMITIR LAS CREDENCIALES
+                .maxAge(3600); // ESTABLECER EL TIEMPO DE CADUCIDAD EN SEGUNDOS
     }
 }
