@@ -45,7 +45,7 @@ public class MunicipioController {
         }
     }
 
-    // Metodo GET por nombre (new)
+    // Metodo GET por nombre
     @GetMapping("/buscar")
     public List<MunicipioModel> buscarMunicipiosPorNombre(@RequestParam String nombre) {
         return municipioService.buscarPorNombre(nombre);
